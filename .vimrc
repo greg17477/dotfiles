@@ -26,6 +26,9 @@ set tabstop=2
 set softtabstop=2
 set shiftwidth=2
 
+" allow backspace delete
+set backspace=indent,eol,start
+
 " visual autocomplete for command menu
 set wildmenu
 
