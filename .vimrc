@@ -1,46 +1,39 @@
-" enable 256 colors
-set t_Co=256
-
-" enable line numers
-"set number
-
-" enable status bar
-set laststatus=2
-
-" enable syntax highlighting
-syntax on
-
-" search highlighting
-set hlsearch
-
-" search as characters are entered
-set incsearch
-
-" tabs are spaces
-set expandtab
-
-" number of visual spaces per TAB
-set tabstop=2
-
-" number of spaces in tab when editing
-set softtabstop=2
-set shiftwidth=2
-
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim settings - Start
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"
 " allow backspace delete
 set backspace=indent,eol,start
 
-" visual autocomplete for command menu
-set wildmenu
+set t_Co=256        " enable 256 colors
+syntax on           " enable syntax highlighting
 
+"set number         " enable line numers
+set laststatus=2    " enable status bar
 
-" PaperColor Theme
+set hlsearch        " search highlighting
+set incsearch       " search as characters are entered
+
+set tabstop=2       " number of visual spaces per TAB
+set softtabstop=2   " number of spaces in tab when editing
+set shiftwidth=2
+set expandtab       " tabs are spaces
+
+set wildmenu        " visual autocomplete for command menu
+
+" set Theme: PaperColor
 set background=dark
 colorscheme PaperColor
+"
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim settings - End
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Vundle Plugin Manager - Start
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -77,21 +70,13 @@ filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
 "
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
-"
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Vundle Plugin Manager - End
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" vim-airline stuff
+" vim-airline stuff - Start
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
 " tabline always on
@@ -99,3 +84,7 @@ let g:airline#extensions#tabline#enabled = 1
 
 " user powerline font symbols
 let g:airline_powerline_fonts = 1
+"
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim-airline stuff - End
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
