@@ -16,7 +16,7 @@ defscrollback 5000
 # play nice with terminal/console
 attrcolor b ".I"
 termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E38;5;%dm'
-defbce "on"
+defbce on
 
 # Time in seconds, a message is displayed if screen is not disturbed by other activity.
 msgwait 0
