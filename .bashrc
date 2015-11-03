@@ -8,12 +8,10 @@ fi
 PATH=~/bin:$PATH
 export PATH=~/bin:/home/greg/bin:/home/greg/bin:/usr/lib64/qt-3.3/bin:/usr/lib64/ccache:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/opt/mx/bin:/home/greg/bin
 
-export USE_CCACHE=1
 export VISUAL=vim
-# unset SSH_ASKPASS
+export USE_CCACHE=1
 
 # command prompt highlighting
-# PS1='\[\033[1;36m\]\u\[\033[1;30m\]@\[\033[1;32m\]\h \[\033[1;30m\]\W\[\033[1;36m\] \$ \[\033[0m\]'
 PS1='\[\033[0;36m\]\u\[\033[1;30m\]@\[\033[0;32m\]\h \[\033[1;30m\]\W\[\033[0;36m\] \$ \[\033[0m\]'
 
 
