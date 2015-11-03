@@ -31,8 +31,7 @@ vbell off
 # caption always '%{=u kw} %= %= %{=u kB}%n-%t'
 caption always '%{=u kK} %= %='
 #hardstatus alwayslastline '%{g}[ %{G}%H %{g}][%= %{= B}%?%-Lw%?%{= Y}%n*%f %t%?%{= Y}(%u)%?%{= B}%+Lw%?%= %{= g}][ %{B}%Y-%m-%d %{w}%c:%s %{g}]'
-hardstatus alwayslastline '%{K}[ %{G}%H %{K}][%= %{= K}%?%-Lw%?%{= Y}%n*%f %t%?%{= Y}(%u)%?%{= K}%+Lw%?%= %{= K}][ %{K}%Y-%m-%d %{w}%c:%s %{K}]'
-
+hardstatus alwayslastline '%{K}[ %{g}%H %{K}][%= %{= K}%?%-Lw%?%{= y}%n*%f %t%?%{= y}(%u)%?%{= K}%+Lw%?%= %{= K}][ %{K}%Y-%m-%d %{w}%c:%s %{K}]'
 
 # remove most default key binds
 bind k    # "kill" Kill current window
