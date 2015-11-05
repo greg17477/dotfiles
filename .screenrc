@@ -33,7 +33,11 @@ caption always '%{= kk} %='
 #hardstatus alwayslastline '%{g}[ %{G}%H %{g}][%= %{= B}%?%-Lw%?%{= Y}%n*%f %t%?%{= Y}(%u)%?%{= B}%+Lw%?%= %{= g}][ %{B}%Y-%m-%d %{w}%c:%s %{g}]'
 #hardstatus alwayslastline '%{K}[ %{g}%H %{K}][%= %{= K}%?%-Lw%?%{= y}%n*%f %t%?%{= y}(%u)%?%{= K}%+Lw%?%= %{= K}][ %{K}%Y-%m-%d %{w}%c:%s %{K}]'
 
-hardstatus alwayslastline '%{=b cM} %H %{= Kc}%{= KK}%= %{= KW}%{= WM} %?%-w%{=b kY} %n.%t %{= WM}%?%+w %{= KW} %= %{= KG}%{= Gk} %Y-%m-%d %c:%s  '
+# default hardstatus line
+hardstatus alwayslastline '%{= ck} %H %{= Kc}%{= KK}%= %{= KM}%{= Mk} %?%-w%{=b kY} %n.%t %{= Mk}%?%+w %{= KM} %= %{= KG}%{= Gk} %Y-%m-%d %c:%s  '
+
+# splited windows hardstatus line
+#hardstatus alwayslastline '%{= ck} %H %{= kc}%{= kk}%= %{= kM}%{= Mk} %?%-w%{=b kY} %n.%t %{= Mk}%?%+w %{= kM} %= %{= kG}%{= Gk} %Y-%m-%d %c:%s  '
 
 # remove most default key binds
 bind k    # "kill" Kill current window
@@ -104,17 +108,21 @@ bind *    # "displays" Shows a tabular listing of all currently connected user f
 
 
 # custom key bindings
-bind K kill       # Kill current window
-bind W windowlist # Show a selectable list of all opened windows
-bind Q eval "only" "caption always '%{= kk} %='"      # Close all regions but the one currently selected and set caption mode to default.
-bind p paste .    # paste
-bind ' ' copy     # enter copy/scroll mode
-bind R redisplay  # Fully refresh the current window.
-bind S eval "split" "caption always '%{= KK}%= %{= Kk}%{= kR} %n-%t  %<  '"     # Split screen and set caption mode with window title aligned to right side of the window.
-bind X remove     # Kill the current region.
-bind + resize +10 # increase current region height by 10
-bind - resize -10 # decrease current region height by 10
-bind = resize =   # make all regions equally high
+# Split screen and set caption mode with window title aligned to right side of the window.
+bind S eval "split" "caption always '%{= KK}%= %{= Kk}%{= kR} %n-%t  %<  '" "hardstatus alwayslastline '%{= ck} %H %{= kc}%{= kk}%= %{= kM}%{= Mk} %?%-w%{=b kY} %n.%t %{= Mk}%?%+w %{= kM} %= %{= kG}%{= Gk} %Y-%m-%d %c:%s  '"
+# Close all regions but the one currently selected and set caption mode to default.
+bind Q eval "only" "caption always '%{= kk} %='" "hardstatus alwayslastline '%{= ck} %H %{= Kc}%{= KK}%= %{= KM}%{= Mk} %?%-w%{=b kY} %n.%t %{= Mk}%?%+w %{= KM} %= %{= KG}%{= Gk} %Y-%m-%d %c:%s  '"
+
+bind K kill             # Kill current window
+bind W windowlist       # Show a selectable list od all opened windows
+bind p paste .          # paste
+bind ' ' copy           # enter copy/scroll mode
+bind R redisplay        # Fully refresh the current window.
+bind X remove           # Kill the current region.
+bind + resize +10       # increase current region height by 10
+bind - resize -10       # decrease current region height by 10
+bind = resize =         # make all regions equally high
+
 
 # bindkeys are active without pressing ctrl-a first
 bindkey -k k1 select 1  #  F1 = screen 1
