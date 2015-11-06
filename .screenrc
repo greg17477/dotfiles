@@ -133,8 +133,8 @@ bindkey -k k5 select 5  #  F5 = screen 5
 bindkey -k k6 select 6  #  F6 = screen 6
 bindkey -k k7 select 7  #  F7 = screen 7
 bindkey -k k8 select 8  #  F8 = screen 8
-bindkey -k k9 select 9  #  F9 = screen 9
-bindkey -k k; select 10 #  F10 = screen 10
+#bindkey -k k9 select 9  #  F9 = screen 9
+#bindkey -k k; select 10 #  F10 = screen 10
 bindkey -k F1 prev      #  F11 = prev
 bindkey -k F2 next      #  F12 = next
 
