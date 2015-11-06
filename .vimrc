@@ -24,6 +24,13 @@ set wildmenu        " visual autocomplete for command menu
 " set Theme: PaperColor
 set background=dark
 colorscheme PaperColor
+
+" key binds/maps
+nnoremap <F9>  :bp <CR>
+nnoremap <F10> :bn <CR>
+
+" vim explorer nicer list
+let g:netrw_liststyle=3
 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim settings - End
