@@ -25,10 +25,6 @@ set wildmenu        " visual autocomplete for command menu
 set background=dark
 colorscheme PaperColor
 
-" key binds/maps
-nnoremap <F9>  :bp <CR>
-nnoremap <F10> :bn <CR>
-
 " vim explorer nicer list
 let g:netrw_liststyle=3
 "
@@ -65,7 +61,7 @@ Plugin 'bling/vim-airline'
 
 Plugin 'Raimondi/delimitMate'
 
-Plugin 'majutsushi/tagbar'
+"Plugin 'majutsushi/tagbar'
 
 Plugin 'airblade/vim-gitgutter'
 
@@ -95,3 +91,11 @@ let g:airline_powerline_fonts = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-airline stuff - End
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" key binds/maps should be mapped at the end
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"
+nnoremap <F9>  :bp <CR>
+nnoremap <F10> :bn <CR>
