@@ -21,6 +21,9 @@ set expandtab       " tabs are spaces
 
 set wildmenu        " visual autocomplete for command menu
 
+set splitbelow      " open new split below the active one
+set splitright      " open new split right to the active one
+
 " set Theme: PaperColor
 set background=dark
 colorscheme PaperColor
