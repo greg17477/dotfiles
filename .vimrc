@@ -100,5 +100,10 @@ let g:airline_powerline_fonts = 1
 " key binds/maps should be mapped at the end
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
+" previous, next buffer
 nnoremap <F9>  :bp <CR>
 nnoremap <F10> :bn <CR>
+
+" resize the selected window by +/-N lines
+nnoremap <C-W><kPlus> :resize +10 <CR>
+nnoremap <C-W><kMinus> :resize -10 <CR>
