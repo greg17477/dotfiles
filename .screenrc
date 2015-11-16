@@ -110,6 +110,8 @@ bind *    # "displays" Shows a tabular listing of all currently connected user f
 # custom key bindings
 # Split screen and set caption mode with window title aligned to right side of the window.
 bind S eval "split" "caption always '%{= KK}%= %{= Kk}%{= kR} %n-%t  %<  '" "hardstatus alwayslastline '%{= ck} %H %{= kc}%{= kk}%= %{= kM}%{= Mk} %?%-w%{=b kY} %n.%t %{= Mk}%?%+w %{= kM} %= %{= kG}%{= Gk} %Y-%m-%d %c:%s  '"
+# Split screen verticaly and set caption mode with window title aligned to right side of the window.
+bind | eval "split -v" "caption always '%{= KK}%= %{= Kk}%{= kR} %n-%t  %<  '" "hardstatus alwayslastline '%{= ck} %H %{= kc}%{= kk}%= %{= kM}%{= Mk} %?%-w%{=b kY} %n.%t %{= Mk}%?%+w %{= kM} %= %{= kG}%{= Gk} %Y-%m-%d %c:%s  '"
 # Close all regions but the one currently selected and set caption mode to default.
 bind Q eval "only" "caption always '%{= kk} %='" "hardstatus alwayslastline '%{= ck} %H %{= Kc}%{= KK}%= %{= KM}%{= Mk} %?%-w%{=b kY} %n.%t %{= Mk}%?%+w %{= KM} %= %{= KG}%{= Gk} %Y-%m-%d %c:%s  '"
 
