@@ -11,9 +11,6 @@ export PATH=~/bin:/home/greg/bin:/home/greg/bin:/usr/lib64/qt-3.3/bin:/usr/lib64
 export VISUAL=vim
 export USE_CCACHE=1
 
-# command prompt highlighting
-PS1='\[\033[0;36m\]\u\[\033[1;35m\]@\[\033[0;32m\]\h \[\033[1;35m\]\W\[\033[0;36m\] \$ \[\033[0m\]'
-
 
 ################################################################################
 # proper shell and screen colouring - Start
@@ -25,6 +22,9 @@ else
   export TERM='xterm-color'
 fi
 
+# command prompt highlighting
+PS1='\[\033[0;36m\]\u\[\033[1;35m\]@\[\033[0;32m\]\h \[\033[1;35m\]\W\[\033[0;36m\] \$ \[\033[0m\]'
+
 # In order to use the 'light-theme' for colouring the shell and playing nice with 'screen',
 # copy the predefined DIR_COLORS* theme into the users directory first:
 #
@@ -33,25 +33,24 @@ fi
 if [ -x /usr/bin/dircolors ]; then
   test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
 fi
+
+# colorful 'man' pages
+export LESS_TERMCAP_mb=$'\E[01;31m'       # begin blinking
+export LESS_TERMCAP_md=$'\E[01;38;5;74m'  # begin bold
+export LESS_TERMCAP_me=$'\E[0m'           # end mode
+export LESS_TERMCAP_se=$'\E[0m'           # end standout-mode
+export LESS_TERMCAP_so=$'\E[38;5;246m'    # begin standout-mode - info box
+export LESS_TERMCAP_ue=$'\E[0m'           # end underline
+export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
 #
 ################################################################################
 # proper shell and screen colouring - End
 ################################################################################
 
 
-################################################################################
-# bash-git-prompt - Start
-################################################################################
-#
-# Set config variables first
+# bash-git-prompt
 GIT_PROMPT_ONLY_IN_REPO=1
-
 source ~/.bash-git-prompt/gitprompt.sh
-#
-################################################################################
-# bash-git-prompt - End
-################################################################################
-
 
 # git-completion.bash
 source ~/.git-completion.bash
