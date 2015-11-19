@@ -9,6 +9,7 @@ set t_Co=256        " enable 256 colors
 syntax on           " enable syntax highlighting
 
 "set number         " enable line numers
+set relativenumber  " cursor is always line 0
 set laststatus=2    " enable status bar
 
 set hlsearch        " search highlighting
