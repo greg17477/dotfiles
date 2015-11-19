@@ -57,19 +57,9 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'NLKNguyen/papercolor-theme'
 
-Plugin 'tpope/vim-fugitive'
-
 Plugin 'bling/vim-airline'
 
-"Plugin 'bling/vim-bufferline'
-
 Plugin 'Raimondi/delimitMate'
-
-"Plugin 'majutsushi/tagbar'
-
-Plugin 'airblade/vim-gitgutter'
-
-"Plugin 'chrisbra/changesPlugin'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
