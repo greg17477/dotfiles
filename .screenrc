@@ -4,6 +4,8 @@ startup_message off
 
 nethack on
 
+vbell off
+
 # keep running processes on detach
 autodetach on
 
@@ -25,98 +27,97 @@ msgwait 0
 # Defines the time, in seconds, that screen delays a new message when one message is currently displayed.
 msgminwait 0
 
-vbell off
-
-
-# show an underline: '%{=u kw} %=  %='
-caption always '%{= kk} %='
-#hardstatus alwayslastline '%{g}[ %{G}%H %{g}][%= %{= B}%?%-Lw%?%{= Y}%n*%f %t%?%{= Y}(%u)%?%{= B}%+Lw%?%= %{= g}][ %{B}%Y-%m-%d %{w}%c:%s %{g}]'
-#hardstatus alwayslastline '%{K}[ %{g}%H %{K}][%= %{= K}%?%-Lw%?%{= y}%n*%f %t%?%{= y}(%u)%?%{= K}%+Lw%?%= %{= K}][ %{K}%Y-%m-%d %{w}%c:%s %{K}]'
+# default caption line
+caption splitonly
+caption string '%{= Kk}%=%{= kR}  %n-%t  '
 
 # default hardstatus line
-hardstatus alwayslastline '%{= ck} %H %{= Kc}%{= KK}%= %{= KM}%{= Mk} %?%-w%{=b kY} %n.%t %{= Mk}%?%+w %{= KM} %= %{= KG}%{= Gk} %Y-%m-%d %c:%s  '
+hardstatus alwayslastline
+hardstatus string '%{= ck} %H %{= Kc}%{= Kk}  %c:%s   %{= KK}%= %{= KM}%{= Mk} %?%-w%{=b kY} %n.%t %{= Mk}%?%+w %{= KM} %= %-024=%=%{= KG}%{= Gk}%-010<'
 
-# splited windows hardstatus line
-#hardstatus alwayslastline '%{= ck} %H %{= kc}%{= kk}%= %{= kM}%{= Mk} %?%-w%{=b kY} %n.%t %{= Mk}%?%+w %{= kM} %= %{= kG}%{= Gk} %Y-%m-%d %c:%s  '
 
 # remove most default key binds
-bind k    # "kill" Kill current window
-bind ^k   # "kill" Kill current window
-bind .    # "dumptermcap" Write out a .termcap file.
-bind ,    # "license" Show the copyright page
-bind "'"  # "select" Prompt for a window identifier and switch.
-bind '"'  # "select" Prompt for a window identifier and switch.
-bind ^\   # "quit" Kill all windows and terminate screen.
-bind \\   # "quit" Kill all windows and terminate screen.
-bind {    # "history" Copy and paste a previous (command) line
-bind }    # "history" Copy and paste a previous (command) line
-bind ' '  # "next" space key
-bind n    # "next"
-bind ^n   # "next"
-bind ^@   # "next"
-bind p    # "prev"
-bind ^p   # "prev"
-bind ^?   # "prev"
-bind ]    # "paste ."
-bind ^]   # "paste ."
-bind [    # "enter copy mode"
-bind ^[   # "enter copy mode"
-bind ^a   # "other" Toggle between this and last selected window.
-bind b    # "break" Send a break to the tty.
-bind ^b   # "break" Send a break to the tty.
-bind B    # "pow_break" Close and reopen the tty-line.
-bind C    # "clear" Clears the screen and saves its contents to the scrollback buffer.
-bind D    # "pow_detach" Detach and logout.
-bind ^d   # "detach"
-bind f    # "flow" Cycle flow among on, off or auto.
-bind ^f   # "flow" Cycle flow among on, off or auto.
-bind ^g   # "vbell"
-bind h    # "hardcopy" Write a hardcopy of the current window
-bind ^h   # "hardcopy" Write a hardcopy of the current window
-bind H    # "log" Toggle logging of the current window to the file screenlog.
-#bind ^i  # "focus" Switch the input focus to the next region. <TAB>
-bind I    # "login on"
-bind O    # "login off"
-bind l    # "redisplay" Fully refresh the current window.
-bind ^l   # "redisplay" Fully refresh the current window.
-bind L    # "login" Toggle the current window's login state.
-bind N    # "number" Show the number (and title) of the current window.
-bind M    # "monitor" Toggle monitoring of the current window.
-bind m    # "lastmsg" Repeat the last message displayed in the message line.
-bind ^m   # "lastmsg" Repeat the last message displayed in the message line.
-bind Q    # "only" Delete all regions but the current one.
-bind q    # "xon"
-bind ^q   # "xon"
-bind r    # "wrap" Toggle the current window's line-wrap setting.
-bind ^r   # "wrap" Toggle the current window's line-wrap setting.
-bind s    # "xoff"
-bind ^s   # "xoff"
-bind t    # "time" Show current time.
-bind ^t   # "time" Show current time.
-bind ^v   # "digraph" Enter digraph.
-bind v    # "version" Display the version and modification date in the message line.
-bind w    # "windows" Show a list of active windows.
-bind ^w   # "windows" Show a list of active windows.
-bind X    # "lockscreen"
-bind z    # "suspend"
-bind ^z   # "suspend"
-bind Z    # "reset" Reset the virtual terminal to its "power-on" values.
-bind >    # "writebuf" Write the paste buffer out to the screen-exchange file.
-bind <    # "readbuf" Read the screen-exchange file into the paste buffer.
-bind =    # "removebuf" Delete the screen-exchange file.
-bind *    # "displays" Shows a tabular listing of all currently connected user front-ends (displays).
+bind k          # "kill" Kill current window
+bind ^k         # "kill" Kill current window
+bind .          # "dumptermcap" Write out a .termcap file.
+bind ,          # "license" Show the copyright page
+bind "'"        # "select" Prompt for a window identifier and switch.
+bind '"'        # "select" Prompt for a window identifier and switch.
+bind ^\         # "quit" Kill all windows and terminate screen.
+bind \\         # "quit" Kill all windows and terminate screen.
+bind {          # "history" Copy and paste a previous (command) line
+bind }          # "history" Copy and paste a previous (command) line
+bind ' '        # "next" space key
+bind n          # "next"
+bind ^n         # "next"
+bind ^@         # "next"
+bind p          # "prev"
+bind ^p         # "prev"
+bind ^?         # "prev"
+bind ]          # "paste ."
+bind ^]         # "paste ."
+bind [          # "enter copy mode"
+bind ^[         # "enter copy mode"
+bind ^a         # "other" Toggle between this and last selected window.
+bind b          # "break" Send a break to the tty.
+bind ^b         # "break" Send a break to the tty.
+bind B          # "pow_break" Close and reopen the tty-line.
+bind C          # "clear" Clears the screen and saves its contents to the scrollback buffer.
+bind D          # "pow_detach" Detach and logout.
+bind ^d         # "detach"
+bind f          # "flow" Cycle flow among on, off or auto.
+bind ^f         # "flow" Cycle flow among on, off or auto.
+bind ^g         # "vbell"
+bind h          # "hardcopy" Write a hardcopy of the current window
+bind ^h         # "hardcopy" Write a hardcopy of the current window
+bind H          # "log" Toggle logging of the current window to the file screenlog.
+bind i          # "info"
+bind ^i         # "focus" Switch the input focus to the next region. <TAB>
+bind I          # "login on"
+bind O          # "login off"
+bind l          # "redisplay" Fully refresh the current window.
+bind ^l         # "redisplay" Fully refresh the current window.
+bind L          # "login" Toggle the current window's login state.
+bind N          # "number" Show the number (and title) of the current window.
+bind M          # "monitor" Toggle monitoring of the current window.
+bind m          # "lastmsg" Repeat the last message displayed in the message line.
+bind ^m         # "lastmsg" Repeat the last message displayed in the message line.
+bind Q          # "only" Delete all regions but the current one.
+bind q          # "xon"
+bind ^q         # "xon"
+bind r          # "wrap" Toggle the current window's line-wrap setting.
+bind ^r         # "wrap" Toggle the current window's line-wrap setting.
+bind s          # "xoff"
+bind ^s         # "xoff"
+bind S          # "split" horizontally
+bind t          # "time" Show current time.
+bind ^t         # "time" Show current time.
+bind ^v         # "digraph" Enter digraph.
+bind v          # "version" Display the version and modification date in the message line.
+bind w          # disbale default "windows" Show a list of active windows.
+bind ^w         # disbale default "windows" Show a list of active windows.
+bind W          # "width"
+bind x          # "lockscreen" disable
+bind ^x         # "lockscreen" disable
+bind X          # "lockscreen" disable
+bind z          # "suspend"
+bind ^z         # "suspend"
+bind Z          # "reset" Reset the virtual terminal to its "power-on" values.
+bind >          # "writebuf" Write the paste buffer out to the screen-exchange file.
+bind <          # "readbuf" Read the screen-exchange file into the paste buffer.
+bind =          # "removebuf" Delete the screen-exchange file.
+bind *          # "displays" Shows a tabular listing of all currently connected user front-ends (displays).
+bind _          # "silence"
+bind |          # "split -v" split verically
 
 
-# custom key bindings
-# Split screen and set caption mode with window title aligned to right side of the window.
-bind S eval "split" "caption always '%{= KK}%= %{= Kk}%{= kR} %n-%t  %<  '" "hardstatus alwayslastline '%{= ck} %H %{= kc}%{= kk}%= %{= kM}%{= Mk} %?%-w%{=b kY} %n.%t %{= Mk}%?%+w %{= kM} %= %{= kG}%{= Gk} %Y-%m-%d %c:%s  '"
-# Split screen verticaly and set caption mode with window title aligned to right side of the window.
-bind | eval "split -v" "caption always '%{= KK}%= %{= Kk}%{= kR} %n-%t  %<  '" "hardstatus alwayslastline '%{= ck} %H %{= kc}%{= kk}%= %{= kM}%{= Mk} %?%-w%{=b kY} %n.%t %{= Mk}%?%+w %{= kM} %= %{= kG}%{= Gk} %Y-%m-%d %c:%s  '"
-# Close all regions but the one currently selected and set caption mode to default.
-bind Q eval "only" "caption always '%{= kk} %='" "hardstatus alwayslastline '%{= ck} %H %{= Kc}%{= KK}%= %{= KM}%{= Mk} %?%-w%{=b kY} %n.%t %{= Mk}%?%+w %{= KM} %= %{= KG}%{= Gk} %Y-%m-%d %c:%s  '"
+# custom key bindings. ctrl-a has to be pressed first
+bind s eval "split"     "hardstatus ignore" "focus" "windowlist"  # split screen horizontally, turn off hardsatus line, switch to new region and open the windowlist
+bind v eval "split -v"  "hardstatus ignore" "focus" "windowlist"  # split screen vertically, turn off hardsatus line, switch to new region and open the windowlist
+bind Q eval "only"      "hardstatus alwayslastline"               # close all regions except the current one and activate the hardstatus line
 
 bind K kill             # Kill current window
-bind W windowlist       # Show a selectable list od all opened windows
+bind w windowlist       # Show a selectable list od all opened windows
 bind p paste .          # paste
 bind ' ' copy           # enter copy/scroll mode
 bind R redisplay        # Fully refresh the current window.
@@ -126,7 +127,38 @@ bind - resize -10       # decrease current region height by 10
 bind = resize =         # make all regions equally high
 
 
+################################################################################
 # bindkeys are active without pressing ctrl-a first
+#
+# To get the right key value:
+#   'ctrl-a' then ':'
+#   Press your desired key or keys like 'Shift F9'.
+#   You get '[33~'. Thats the key value for 'Shift F9'.
+#
+# These key values have to be escaped in order to use them.
+# Escape strings: '\033' or '^['
+# Valid key looks like this: "\033[33~" or "^[[33~"
+#
+# Example of a bindkey:
+#
+#   bindkey "\033[33~" prev
+#
+# Keys:
+#   [1;2C = shift right
+#   [1;2D = shift left
+#   [1;5A = ctrl-up
+#   [1;5B = ctrl-down
+#   [1;5C = ctrl-right
+#   [1;5D = ctrl-left
+#
+################################################################################
+#
+# navigating in regions/splits
+bindkey "\033[1;5A" focus up      # ctrl-up    = move to region above
+bindkey "\033[1;5B" focus down    # ctrl-down  = move to region below
+bindkey "\033[1;5C" focus right   # ctrl-right = move to right region
+bindkey "\033[1;5D" focus left    # ctrl-left  = move to left region
+
 bindkey -k k1 select 1  #  F1 = screen 1
 bindkey -k k2 select 2  #  F2 = screen 2
 bindkey -k k3 select 3  #  F3 = screen 3
@@ -135,10 +167,9 @@ bindkey -k k5 select 5  #  F5 = screen 5
 bindkey -k k6 select 6  #  F6 = screen 6
 bindkey -k k7 select 7  #  F7 = screen 7
 bindkey -k k8 select 8  #  F8 = screen 8
-#bindkey -k k9 select 9  #  F9 = screen 9
-#bindkey -k k; select 10 #  F10 = screen 10
-bindkey -k F1 prev      #  F11 = prev
-bindkey -k F2 next      #  F12 = next
+bindkey -k F1 prev      #  F11 = previous window
+bindkey -k F2 next      #  F12 = next window
+
 
 bindkey -t !god stuff "ssh root@localhost^M"  # make me ROOT
 
@@ -173,4 +204,3 @@ screen -t wawa 5
 
 # window to be active after screen started
 select 4
-
