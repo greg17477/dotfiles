@@ -98,3 +98,6 @@ nnoremap <F10> :bn <CR>
 " resize the selected window by +/-N lines
 nnoremap <C-W><kPlus>  :resize +10 <CR>
 nnoremap <C-W><kMinus> :resize -10 <CR>
+
+" toggle 'paste' mode to paste from clipboard and preserve text formatting
+noremap <Insert> :set paste! <CR>
