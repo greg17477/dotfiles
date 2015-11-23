@@ -59,7 +59,8 @@ Plugin 'NLKNguyen/papercolor-theme'
 
 Plugin 'bling/vim-airline'
 
-Plugin 'Raimondi/delimitMate'
+"Plugin 'Raimondi/delimitMate'
+Plugin 'jiangmiao/auto-pairs'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
