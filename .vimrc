@@ -56,10 +56,7 @@ Plugin 'VundleVim/Vundle.vim'
 " Keep Plugin commands between vundle#begin/end.
 
 Plugin 'NLKNguyen/papercolor-theme'
-
 Plugin 'bling/vim-airline'
-
-"Plugin 'Raimondi/delimitMate'
 Plugin 'jiangmiao/auto-pairs'
 
 " All of your Plugins must be added before the following line
@@ -93,12 +90,12 @@ let g:airline_powerline_fonts = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
 " previous, next buffer
-nnoremap <F9>  :bp <CR>
-nnoremap <F10> :bn <CR>
+nnoremap <silent> <F9>  :bp <CR>
+nnoremap <silent> <F10> :bn <CR>
 
 " resize the selected window by +/-N lines
-nnoremap <C-W>+ :resize +10 <CR>
-nnoremap <C-W>- :resize -10 <CR>
+noremap <silent> <C-W>+ :resize +10 <CR>
+noremap <silent> <C-W>- :resize -10 <CR>
 
 " toggle 'paste' mode to paste from clipboard and preserve text formatting
-noremap <Insert> :set paste! <CR>
+noremap <silent> <Insert> :set paste! <CR>
