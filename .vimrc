@@ -99,3 +99,4 @@ noremap <silent> <C-W>- :resize -10 <CR>
 
 " toggle 'paste' mode to paste from clipboard and preserve text formatting
 noremap <silent> <Insert> :set paste! <CR>
+noremap <silent> <Del>    :noh <CR>
