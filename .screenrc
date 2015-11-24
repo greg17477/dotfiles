@@ -13,7 +13,7 @@ autodetach on
 altscreen on
 
 # large scrollback buffer
-defscrollback 5000
+defscrollback 10000
 
 # play nice with terminal/console
 term xterm-256color
@@ -26,6 +26,9 @@ msgwait 0
 
 # Defines the time, in seconds, that screen delays a new message when one message is currently displayed.
 msgminwait 0
+
+# don't break regions-layout after de-, re-attaching a session
+layout save default
 
 # default caption line
 caption splitonly
