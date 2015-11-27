@@ -93,9 +93,11 @@ let g:airline_powerline_fonts = 1
 nnoremap <silent> <F9>  :bp <CR>
 nnoremap <silent> <F10> :bn <CR>
 
-" resize the selected window by +/-N lines
-noremap <silent> <C-W>+ :resize +10 <CR>
-noremap <silent> <C-W>- :resize -10 <CR>
+" resizing windows - ctrl+alt+key
+noremap <silent> <C-S-k> :resize +10 <CR>
+noremap <silent> <C-S-j> :resize -10 <CR>
+noremap <silent> <C-S-l> :vertical resize +10 <CR>
+noremap <silent> <C-S-h> :vertical resize -10 <CR>
 
 " toggle 'paste' mode to paste from clipboard and preserve text formatting
 noremap <silent> <Insert> :set paste! <CR>
