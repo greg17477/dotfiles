@@ -129,10 +129,10 @@ bind v eval "split -v"  "hardstatus ignore" "focus" "windowlist"  # split screen
 bind O eval "only"      "hardstatus alwayslastline"               # close all regions except the current one and activate the hardstatus line
 
 # navigating in regions/splits
-bind k focus up        # ctrl-up    = move to region above
-bind j focus down      # ctrl-down  = move to region below
-bind l focus right     # ctrl-right = move to right region
-bind h focus left      # ctrl-left  = move to left region
+bind k focus up        # move to region above
+bind j focus down      # move to region below
+bind l focus right     # move to right region
+bind h focus left      # move to left region
 
 
 ################################################################################
