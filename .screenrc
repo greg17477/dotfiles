@@ -126,7 +126,7 @@ bind = resize -v -h =   # make all regions equally high
 # manage regions/splits
 bind s eval "split"     "hardstatus ignore" "focus" "windowlist"  # split screen horizontally, turn off hardsatus line, switch to new region and open the windowlist
 bind v eval "split -v"  "hardstatus ignore" "focus" "windowlist"  # split screen vertically, turn off hardsatus line, switch to new region and open the windowlist
-bind Q eval "only"      "hardstatus alwayslastline"               # close all regions except the current one and activate the hardstatus line
+bind O eval "only"      "hardstatus alwayslastline"               # close all regions except the current one and activate the hardstatus line
 
 # navigating in regions/splits
 bind k focus up        # ctrl-up    = move to region above
