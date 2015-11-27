@@ -1,43 +1,4 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" vim settings - Start
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"
-" allow backspace delete
-set backspace=indent,eol,start
-
-set t_Co=256        " enable 256 colors
-syntax on           " enable syntax highlighting
-
-set number          " enable line numers
-set relativenumber  " cursor is always line 0
-set laststatus=2    " enable status bar
-
-set hlsearch        " search highlighting
-set incsearch       " search as characters are entered
-
-set tabstop=2       " number of visual spaces per TAB
-set softtabstop=2   " number of spaces in tab when editing
-set shiftwidth=2
-set expandtab       " tabs are spaces
-
-set wildmenu        " visual autocomplete for command menu
-
-set splitbelow      " open new split below the active one
-set splitright      " open new split right to the active one
-
-" set Theme: PaperColor
-set background=dark
-colorscheme PaperColor
-
-" vim explorer nicer list
-let g:netrw_liststyle=3
-"
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" vim settings - End
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Vundle Plugin Manager - Start
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
@@ -67,6 +28,45 @@ filetype plugin indent on    " required
 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Vundle Plugin Manager - End
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim settings - Start
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"
+" set Theme: PaperColor
+set background=dark
+colorscheme PaperColor
+
+" allow backspace delete
+set backspace=indent,eol,start
+
+set t_Co=256        " enable 256 colors
+syntax on           " enable syntax highlighting
+
+set number          " enable line numers
+set relativenumber  " cursor is always line 0
+set laststatus=2    " enable status bar
+
+set hlsearch        " search highlighting
+set incsearch       " search as characters are entered
+
+set tabstop=2       " number of visual spaces per TAB
+set softtabstop=2   " number of spaces in tab when editing
+set shiftwidth=2
+set expandtab       " tabs are spaces
+
+set wildmenu        " visual autocomplete for command menu
+
+set splitbelow      " open new split below the active one
+set splitright      " open new split right to the active one
+
+" vim explorer nicer list
+let g:netrw_liststyle=3
+"
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim settings - End
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
