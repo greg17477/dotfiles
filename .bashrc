@@ -11,6 +11,9 @@ export PATH=~/bin:/home/greg/bin:/home/greg/bin:/usr/lib64/qt-3.3/bin:/usr/lib64
 export VISUAL=vim
 export USE_CCACHE=1
 
+# Disable <CTRL-d> used to logout of a login shell
+set -o ignoreeof
+
 
 ################################################################################
 # proper shell and screen colouring - Start
