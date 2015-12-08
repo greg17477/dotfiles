@@ -1,10 +1,16 @@
 shell -/bin/bash
 
+# change the default meta character to ctrl-s
+escape ^Ss
+
 startup_message off
 
 nethack on
 
 vbell off
+
+# disable ctrl-s (control flow)
+xon off
 
 # keep running processes on detach
 autodetach on
