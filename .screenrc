@@ -9,7 +9,7 @@ nethack on
 
 vbell off
 
-# disable ctrl-s (control flow)
+# disable ctrl-s (flow control)
 xon off
 
 # keep running processes on detach
