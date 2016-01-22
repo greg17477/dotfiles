@@ -64,6 +64,14 @@ set splitright      " open new split right to the active one
 
 " vim explorer nicer list
 let g:netrw_liststyle=3
+
+" Removes trailing spaces on save. Restores last cusrsor position and last search.
+function! TrimWhiteSpace()
+  let l:save_cursor = getpos('.')
+  %s/\s\+$//e
+  call setpos('.', l:save_cursor)
+endfunction
+autocmd BufWritePre * :call TrimWhiteSpace()
 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim settings - End
