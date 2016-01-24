@@ -5,9 +5,6 @@ if [ -f /etc/bashrc ]; then
   . /etc/bashrc
 fi
 
-PATH=~/bin:$PATH
-export PATH=~/bin:/home/greg/bin:/home/greg/bin:/usr/lib64/qt-3.3/bin:/usr/lib64/ccache:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/opt/mx/bin:/home/greg/bin
-
 export VISUAL=vim
 export USE_CCACHE=1
 
@@ -51,9 +48,9 @@ export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
 ################################################################################
 
 
-# bash-git-prompt
-GIT_PROMPT_ONLY_IN_REPO=1
+# bash-git-prompt - https://github.com/magicmonty/bash-git-prompt
 source ~/.bash-git-prompt/gitprompt.sh
+GIT_PROMPT_ONLY_IN_REPO=1
 
-# git-completion.bash
+# git-completion.bash - https://github.com/git/git/blob/master/contrib/completion/git-completion.bash
 source ~/.git-completion.bash
