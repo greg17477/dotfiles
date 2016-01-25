@@ -126,7 +126,7 @@ bind w windowlist       # Show a selectable list od all opened windows
 bind p paste .          # paste
 bind ' ' copy           # enter copy/scroll mode
 bind R redisplay        # Fully refresh the current window.
-bind X remove           # Kill the current region.
+bind Q remove           # Kill the current region.
 bind = resize -v -h =   # make all regions equally high
 
 # manage regions/splits
