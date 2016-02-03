@@ -54,3 +54,52 @@ GIT_PROMPT_ONLY_IN_REPO=1
 
 # git-completion.bash - https://github.com/git/git/blob/master/contrib/completion/git-completion.bash
 source ~/.git-completion.bash
+
+
+################################################################################
+# gnu screen related stuff - Start
+################################################################################
+#
+# Generate a dafault prompt
+PROMPT_COMMAND="echo -n -e '\033k\033\\'; $PROMPT_COMMAND"
+
+# Set hostname initially for new windows
+echo -n -e "\033k$(echo ${HOSTNAME} | cut -d . -f 1)\033\\"
+
+# While ssh-ing to a remote host,
+# extract its username and hostname and set it as window title in screen.
+ssh () {
+  ARGS=$@
+  USER_SSH=""
+  HOSTNAME_SSH=""
+  USER_SET=0
+
+  while [ "$1" ] ; do
+    case "$1" in
+      -l)
+        USER_SSH="$2"
+        USER_SET=1
+        shift 2
+        ;;
+      *)
+        if ! [[ $1 =~ ^- ]] ; then
+          if [ $USER_SET == 0 ] ; then
+            USER_SSH=$(echo -e "$1" | cut -d @ -f 1)
+            HOSTNAME_SSH=$(echo -e "$1" | cut -d @ -f 2 | cut -d . -f 1)
+          else
+            HOSTNAME_SSH=$(echo -e "$1" | cut -d . -f 1)
+          fi
+        fi
+        shift
+        ;;
+    esac
+  done
+
+  echo -n -e "\033k$(echo -e $USER_SSH"@"$HOSTNAME_SSH)\033\\"
+  command ssh $ARGS
+  echo -n -e "\033k$(echo ${HOSTNAME} | cut -d . -f 1)\033\\"
+}
+#
+################################################################################
+# gnu screen related stuff - End
+################################################################################
