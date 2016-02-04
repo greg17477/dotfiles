@@ -4,9 +4,7 @@ shell -/bin/bash
 escape ^Ss
 
 startup_message off
-
 nethack on
-
 vbell off
 
 # disable ctrl-s (flow control)
@@ -21,7 +19,7 @@ altscreen on
 # large scrollback buffer
 defscrollback 10000
 
-# play nice with terminal/console
+# play nice with terminal/console - support 256 colors
 term xterm-256color
 attrcolor b ".I"
 termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E38;5;%dm'
@@ -36,13 +34,22 @@ msgminwait 0
 # don't break regions-layout after de-, re-attaching a session
 layout save default
 
+# get current week number
+backtick 100 0 0 sh -c 'date +%V'
+
+# get current ip address
+backtick 101 0 0 sh -c 'hostname -I'
+
+# set color of borders and command-line (background, foreground). default is '=s dd'
+rendition so = Ky
+
 # default caption line
-caption splitonly
-caption string '%{= Kk}%=%{= kR}  %n-%t  '
+caption top always
+caption string '%{= Kk}%=%?%P%{= kG}  **  copy / scroll  **  %:%?%?%E%{= kR}  ** esc **  %:%?%{= Kk}%='
 
 # default hardstatus line
 hardstatus alwayslastline
-hardstatus string '%{= ck} %H %{= Kc}%{= Kk}  %c:%s   %{= KK}%= %{= KM}%{= Mk} %?%-w%{=b kY} %n.%t %{= Mk}%?%+w %{= KM} %= %-024=%=%{= KG}%{= Gk}%-010<'
+hardstatus string '%6B%232G%{=b } %H %238B%6G%243B%238G%{=}%243B%232G %-w%234B%243G%234B%179G %n  %t %243B%234G%243B%232G%?%+w %238B%243G%=%238B%232G %101` W:%100` %238B%240G%240B%232G %D %240B%243G%243B%232G %d.%m.%Y %243B%71G%71B%232G %c:%s %0B%7G'
 
 
 # remove most default key binds
@@ -130,16 +137,25 @@ bind Q remove           # Kill the current region.
 bind = resize -v -h =   # make all regions equally high
 
 # manage regions/splits
-bind s eval "split"     "hardstatus ignore" "focus" "windowlist"  # split screen horizontally, turn off hardsatus line, switch to new region and open the windowlist
-bind v eval "split -v"  "hardstatus ignore" "focus" "windowlist"  # split screen vertically, turn off hardsatus line, switch to new region and open the windowlist
-bind O eval "only"      "hardstatus alwayslastline"               # close all regions except the current one and activate the hardstatus line
+#
+# split screen horizontally, switch to new region, open the windowlist and set caption string
+bind s eval "split -h"  "focus" "windowlist" "caption string '%{= Kk}%=%?%P%{= kG}  **  copy / scroll  **  %:%?%?%E%{= kR}  ** esc **  %:%?%{= Kk}%=%{= kM}%?%F%{= kR}%:%?%?  %n-%t  '"
+# split screen vertically, switch to new region, open the windowlist and set caption string
+bind v eval "split -v"  "focus" "windowlist" "caption string '%{= Kk}%=%?%P%{= kG}  **  copy / scroll  **  %:%?%?%E%{= kR}  ** esc **  %:%?%{= Kk}%=%{= kM}%?%F%{= kR}%:%?%?  %n-%t  '"
+# close all regions except the current one and set caption string
+bind O eval "only"      "caption string '%{= Kk}%=%?%P%{= kG}  **  copy / scroll  **  %:%?%?%E%{= kR}  ** esc **  %:%?%{= Kk}%='"
 
-# navigating in regions/splits
-bind k focus up        # move to region above
+# navigating in regions/split (meta, then key)
+bind k focus top       # move to region on top
 bind j focus down      # move to region below
 bind l focus right     # move to right region
 bind h focus left      # move to left region
 
+# resizing regions/splits (alt + key)
+bindkey "^[k" resize -v +10   # alt-k = make region higher
+bindkey "^[j" resize -v -10   # alt-j = make region smaller
+bindkey "^[l" resize -h +10   # alt-l = make region wider
+bindkey "^[h" resize -h -10   # alt-h = make region thiner
 
 ################################################################################
 # bindkeys are active without pressing ctrl-a first
@@ -167,12 +183,6 @@ bind h focus left      # move to left region
 #
 ################################################################################
 #
-# resizing regions/splits
-bindkey "^[k" resize -v +10   # alt-k = make region higher
-bindkey "^[j" resize -v -10   # alt-j = make region smaller
-bindkey "^[l" resize -h +10   # alt-l = make region wider
-bindkey "^[h" resize -h -10   # alt-h = make region thiner
-
 bindkey -k k1 select 1  #  F1 = screen 1
 bindkey -k k2 select 2  #  F2 = screen 2
 bindkey -k k3 select 3  #  F3 = screen 3
@@ -208,6 +218,7 @@ bind 0 select 10
 
 
 # screens to open on start
+shelltitle '$ |wawa'
 screen -t sys1 1 ssh user@sys1.hostname.com
 stuff "cd /tmp^M"  # 'cd /tmp' ausfuehren // ^M=Enter
 
