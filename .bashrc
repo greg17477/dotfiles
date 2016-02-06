@@ -75,62 +75,62 @@ ssh () {
   USER_SET=0
 
   while [ "$1" ] ; do
-  case "$1" in
-    -l)
-      USER_SSH="$2"
-      USER_SET=1
-      shift 2
-      ;;
-    *)
-      # example: ssh greg@server.com or ssh greg@10.10.10.10
-      # argument does not begin with "-", should be the hostname or ip then.
-      if ! [[ $1 =~ ^- ]] ; then
+    case "$1" in
+      -l)
+        USER_SSH="$2"
+        USER_SET=1
+        shift 2
+        ;;
+      *)
+        # example: ssh greg@server.com or ssh greg@10.10.10.10
+        # argument does not begin with "-", should be the hostname or ip then.
+        if ! [[ $1 =~ ^- ]] ; then
 
-        # user not set yet, get user then
-        if [ $USER_SET == 0 ] ; then
-          USER_SSH=$(echo -e "$1" | cut -d @ -f 1)
+          # user not set yet, get user then
+          if [ $USER_SET == 0 ] ; then
+            USER_SSH=$(echo -e "$1" | cut -d @ -f 1)
 
-          # get the string part (hostname or ip address) after the "@"
-          HOST_OR_IP=$(echo -e "$1" | cut -d @ -f 2)
+            # get the string part (hostname or ip address) after the "@"
+            HOST_OR_IP=$(echo -e "$1" | cut -d @ -f 2)
 
-          # hostname begins with a digit? should be the ip address, nslookup this then.
-          if [[ $HOST_OR_IP =~ ^[[:digit:]] ]] ; then
-            # does the ip address resolve to a hostname?
-            nslookup $HOST_OR_IP >/dev/null 2>&1
-            if [ $? == 0 ] ; then
-              HOSTNAME_SSH=$(nslookup $HOST_OR_IP | grep = | awk -F " " '{print $4}' | cut -d . -f 1)
+            # hostname begins with a digit? should be the ip address, nslookup this then.
+            if [[ $HOST_OR_IP =~ ^[[:digit:]] ]] ; then
+              # does the ip address resolve to a hostname?
+              nslookup $HOST_OR_IP >/dev/null 2>&1
+              if [ $? == 0 ] ; then
+                HOSTNAME_SSH=$(nslookup $HOST_OR_IP | grep = | awk -F " " '{print $4}' | cut -d . -f 1)
+              else
+                HOSTNAME_SSH=$HOST_OR_IP
+              fi
             else
-              HOSTNAME_SSH=$HOST_OR_IP
+              HOSTNAME_SSH=$(echo -e "$1" | cut -d @ -f 2 | cut -d . -f 1)
             fi
+
+            #example: ssh -l greg server.com or ssh -l greg 10.10.10.10
+            # user has been already set, set the hostname now.
           else
-            HOSTNAME_SSH=$(echo -e "$1" | cut -d @ -f 2 | cut -d . -f 1)
-          fi
+            # get the hostname or ip address string
+            HOST_OR_IP=$(echo -e "$1")
 
-          #example: ssh -l greg server.com or ssh -l greg 10.10.10.10
-          # user has been already set, set the hostname now.
-        else
-          # get the hostname or ip address string
-          HOST_OR_IP=$(echo -e "$1")
-
-          # hostname begins with a digit? should be the ip address, nslookup this then.
-          if [[ $1 =~ ^[[:digit:]] ]] ; then
-            # does the ip address resolve to a hostname?
-            nslookup $HOST_OR_IP >/dev/null 2>&1
-            if [ $? == 0 ] ; then
-              HOSTNAME_SSH=$(nslookup $1 | grep = | awk -F " " '{print $4}' | cut -d . -f 1)
+            # hostname begins with a digit? should be the ip address, nslookup this then.
+            if [[ $1 =~ ^[[:digit:]] ]] ; then
+              # does the ip address resolve to a hostname?
+              nslookup $HOST_OR_IP >/dev/null 2>&1
+              if [ $? == 0 ] ; then
+                HOSTNAME_SSH=$(nslookup $1 | grep = | awk -F " " '{print $4}' | cut -d . -f 1)
+              else
+                HOSTNAME_SSH=$HOST_OR_IP
+              fi
             else
-              HOSTNAME_SSH=$HOST_OR_IP
+              HOSTNAME_SSH=$(echo -e "$1" | cut -d . -f 1)
             fi
-          else
-            HOSTNAME_SSH=$(echo -e "$1" | cut -d . -f 1)
           fi
         fi
-      fi
-      shift
-      ;;
-  esac
-done
-
+        shift
+        ;;
+    esac
+  done
+  
   echo -n -e "\033k$(echo -e $USER_SSH"@"$HOSTNAME_SSH)\033\\"
   command ssh $ARGS
   echo -n -e "\033k$(echo ${HOSTNAME} | cut -d . -f 1)\033\\"
