@@ -135,6 +135,10 @@ ssh () {
   command ssh $ARGS
   echo -n -e "\033k$(echo ${HOSTNAME} | cut -d . -f 1)\033\\"
 }
+
+# Intercept ctrl-c press while connecting to remote server.
+# It allows the ssh function to finish properly, so the hostname gets reset.
+trap ssh SIGINT
 #
 ################################################################################
 # gnu screen related stuff - End
