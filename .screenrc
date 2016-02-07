@@ -17,7 +17,7 @@ autodetach on
 altscreen on
 
 # large scrollback buffer
-defscrollback 10000
+defscrollback 20000
 
 # play nice with terminal/console - support 256 colors
 term xterm-256color
@@ -26,7 +26,7 @@ termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E38;5;%dm'
 defbce on
 
 # Time in seconds, a message is displayed if screen is not disturbed by other activity.
-msgwait 0
+msgwait 3
 
 # Defines the time, in seconds, that screen delays a new message when one message is currently displayed.
 msgminwait 0
@@ -34,18 +34,24 @@ msgminwait 0
 # don't break regions-layout after de-, re-attaching a session
 layout save default
 
+# Show or set the status of layout saving.
+layout autosave on
+
 # get current week number
 backtick 100 0 0 sh -c 'date +%V'
 
 # get current ip address
-backtick 101 0 0 sh -c 'hostname -I'
+backtick 101 0 0 sh -c 'hostname -i'
 
 # set color of borders and command-line (background, foreground). default is '=s dd'
 rendition so = Ky
 
+windowlist title '%{+b .C}   # Window%46= Windowlist %='
+windowlist string ' %3n %t'
+
 # default caption line
 caption top always
-caption string '%{= Kk}%=%?%P%{= kG}  **  copy / scroll  **  %:%?%?%E%{= kR}  ** esc **  %:%?%{= Kk}%='
+caption string '%{= Kk}%=%?%P%{= kG}  **  copy / scroll  **  %:%?%?%E%{= kR}  **  ESC  **  %:%?%{= Kk}%='
 
 # default hardstatus line
 hardstatus alwayslastline
@@ -139,11 +145,11 @@ bind = resize -v -h =   # make all regions equally high
 # manage regions/splits
 #
 # split screen horizontally, switch to new region, open the windowlist and set caption string
-bind s eval "split -h"  "focus" "windowlist" "caption string '%{= Kk}%=%?%P%{= kG}  **  copy / scroll  **  %:%?%?%E%{= kR}  ** esc **  %:%?%{= Kk}%=%{= kM}%?%F%{= kR}%:%?%?  %n-%t  '"
+bind s eval "split -h"  "focus" "windowlist" "caption string '%{= Kk}%=%?%P%{= kG}  **  copy / scroll  **  %:%?%?%E%{= kR}  **  ESC  **  %:%?%{= Kk}%=%{= kM}%?%F%{= kR}%:%?%?  %n-%t  '"
 # split screen vertically, switch to new region, open the windowlist and set caption string
-bind v eval "split -v"  "focus" "windowlist" "caption string '%{= Kk}%=%?%P%{= kG}  **  copy / scroll  **  %:%?%?%E%{= kR}  ** esc **  %:%?%{= Kk}%=%{= kM}%?%F%{= kR}%:%?%?  %n-%t  '"
+bind v eval "split -v"  "focus" "windowlist" "caption string '%{= Kk}%=%?%P%{= kG}  **  copy / scroll  **  %:%?%?%E%{= kR}  **  ESC  **  %:%?%{= Kk}%=%{= kM}%?%F%{= kR}%:%?%?  %n-%t  '"
 # close all regions except the current one and set caption string
-bind O eval "only"      "caption string '%{= Kk}%=%?%P%{= kG}  **  copy / scroll  **  %:%?%?%E%{= kR}  ** esc **  %:%?%{= Kk}%='"
+bind O eval "only"      "caption string '%{= Kk}%=%?%P%{= kG}  **  copy / scroll  **  %:%?%?%E%{= kR}  **  ESC  **  %:%?%{= Kk}%='"
 
 # navigating in regions/split (meta, then key)
 bind k focus top       # move to region on top
@@ -216,9 +222,11 @@ bind c screen -t wawa 1
 bind ^c screen -t wawa 1
 bind 0 select 10
 
+# dynamic window title
+shelltitle '$ |wawa'
 
 # screens to open on start
-shelltitle '$ |wawa'
+
 screen -t sys1 1 ssh user@sys1.hostname.com
 stuff "cd /tmp^M"  # 'cd /tmp' ausfuehren // ^M=Enter
 
