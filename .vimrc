@@ -48,6 +48,7 @@ syntax on           " enable syntax highlighting
 set number          " enable line numers
 set relativenumber  " cursor is always line 0
 set laststatus=2    " enable status bar
+set cursorline      " highlight current line
 
 set hlsearch        " search highlighting
 set incsearch       " search as characters are entered
@@ -65,7 +66,7 @@ set splitright      " open new split right to the active one
 " vim explorer nicer list
 let g:netrw_liststyle=3
 
-" Removes trailing spaces on save. Restores last cusrsor position and last search.
+" Removes trailing spaces on save. Restores last cursor position and last search.
 function! TrimWhiteSpace()
   let l:save_cursor = getpos('.')
   %s/\s\+$//e
