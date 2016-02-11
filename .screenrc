@@ -145,17 +145,21 @@ bind = resize -v -h =   # make all regions equally high
 # manage regions/splits
 #
 # split screen horizontally, switch to new region, open the windowlist and set caption string
-bind s eval "split -h"  "focus" "windowlist" "caption string '%{= Kk}%=%?%P%{+b kG}  **  copy / scroll  **  %:%?%?%E%{+b kR}  **  ESC  **  %:%?%{= Kk}%=%{= kM}%?%F%{= kR}%:%?%?  %n-%t  '"
+bind s eval "split -h"  "focus" "windowlist" "caption bottom always" "caption string '%{= Kk}%=%?%P%{+b kG}  **  copy / scroll  **  %:%?%?%E%{+b kR}  **  ESC  **  %:%?%{= Kk}%=%{= kM}%?%F%{+b kR}%:%?%?  %n-%t  '" "hardstatus ignore"
+
 # split screen vertically, switch to new region, open the windowlist and set caption string
-bind v eval "split -v"  "focus" "windowlist" "caption string '%{= Kk}%=%?%P%{+b kG}  **  copy / scroll  **  %:%?%?%E%{+b kR}  **  ESC  **  %:%?%{= Kk}%=%{= kM}%?%F%{= kR}%:%?%?  %n-%t  '"
+bind v eval "split -v"  "focus" "windowlist" "caption bottom always" "caption string '%{= Kk}%=%?%P%{+b kG}  **  copy / scroll  **  %:%?%?%E%{+b kR}  **  ESC  **  %:%?%{= Kk}%=%{= kM}%?%F%{+b kR}%:%?%?  %n-%t  '" "hardstatus ignore"
+
 # close all regions except the current one and set caption string
-bind O eval "only"      "caption string '%{= Kk}%=%?%P%{+b kG}  **  copy / scroll  **  %:%?%?%E%{+b kR}  **  ESC  **  %:%?%{= Kk}%='"
+bind O eval "only"  "caption top always" "caption string '%{= Kk}%=%?%P%{+b kG}  **  copy / scroll  **  %:%?%?%E%{+b kR}  **  ESC  **  %:%?%{= Kk}%='" "hardstatus alwayslastline"
+
 
 # navigating in regions/split (meta, then key)
-bind k focus top       # move to region on top
-bind j focus down      # move to region below
+bind k focus up        # move one region up
+bind j focus down      # move one region down
 bind l focus right     # move to right region
 bind h focus left      # move to left region
+
 
 # resizing regions/splits (alt + key)
 bindkey "^[k" resize -v +10   # alt-k = make region higher
