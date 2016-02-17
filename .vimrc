@@ -43,7 +43,7 @@ colorscheme PaperColor
 set backspace=indent,eol,start
 
 " use + register to yank to systems clipboard
-set clipboard=unnamedplus
+" set clipboard=unnamedplus
 
 set t_Co=256        " enable 256 colors
 syntax on           " enable syntax highlighting
