@@ -66,6 +66,8 @@ set wildmenu        " visual autocomplete for command menu
 set splitbelow      " open new split below the active one
 set splitright      " open new split right to the active one
 
+set timeoutlen=0    " no ESC timeout
+
 " vim explorer nicer list
 let g:netrw_liststyle=3
 
