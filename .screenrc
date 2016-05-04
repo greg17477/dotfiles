@@ -51,7 +51,7 @@ windowlist string ' %3n %t'
 
 # default caption line
 caption top always
-caption string '%{= Kk}%=%?%P%{+b kG}  **  copy / scroll  **  %:%?%?%E%{+b kR}  **  ESC  **  %:%?%{= Kk}%='
+caption string '%{= Kk}%=%?%P%{+b kG}  **  copy / scroll  **  %:%?%?%E%{+b kR}  **  escape / command  **  %:%?%{= Kk}%='
 
 # default hardstatus line
 hardstatus alwayslastline
