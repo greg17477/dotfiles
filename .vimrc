@@ -48,8 +48,11 @@ set backspace=indent,eol,start
 set t_Co=256        " enable 256 colors
 syntax on           " enable syntax highlighting
 
+" If options exists, use it. This check is usually needed on older VIM versions.
+if exists("&relativenumber")
+  set relativenumber " cursor is always line 0
+endif
 set number          " enable line numers
-set relativenumber  " cursor is always line 0
 set laststatus=2    " enable status bar
 set cursorline      " highlight current line
 
