@@ -51,12 +51,13 @@ windowlist string ' %3n %t'
 
 # default caption line
 caption top always
-caption string '%{= Kk}%=%?%P%{+b kG}  **  copy / scroll  **  %:%?%?%E%{+b kR}  **  escape / command  **  %:%?%{= Kk}%='
+#caption string '%{= Kk}%=%?%P%{+b kG}  **  copy / scroll  **  %:%?%?%E%{+b kR}  **  escape / command  **  %:%?%{= Kk}%='
+caption string '%?%E%{= Yk}  **  escape / command  **  %48= %:%?%?%P%{= Gk}  **  copy / scroll  **  %:%?'
 
 # default hardstatus line
 hardstatus alwayslastline
-hardstatus string '%6B%232G%{=b } %H %238B%6G%243B%238G%{=}%243B%232G %-w%234B%243G%234B%179G %n  %t %243B%234G%243B%232G%?%+w %238B%243G%=%238B%232G %101` W:%100` %238B%240G%240B%232G %D %240B%243G%243B%232G %d.%m.%Y %243B%71G%71B%232G %c:%s %0B%7G'
-
+#hardstatus string '%6B%232G%{=b } %H %238B%6G%243B%238G%{=}%243B%232G %-w%234B%243G%234B%179G %n  %t %243B%234G%243B%232G%?%+w %238B%243G%=%238B%232G %101` W:%100` %238B%240G%240B%232G %D %240B%243G%243B%232G %d.%m.%Y %243B%71G%71B%232G %c:%s %0B%7G'
+hardstatus string '%6B%234G%{=b } %H %238B%6G%243B%238G%243B%234G %-w%234B%243G%234B%179G %n  %t %243B%234G%243B%234G%?%+w %238B%243G%=%238B%234G %101`  W:%100` %238B%240G%240B%234G %D %240B%243G%243B%234G %d.%m.%Y %243B%71G%71B%234G %c:%s %0B%7G'
 
 # remove most default key binds
 bind k          # "kill" Kill current window
