@@ -146,13 +146,16 @@ bind = resize -v -h =   # make all regions equally high
 # manage regions/splits
 #
 # split screen horizontally, switch to new region, open the windowlist and set caption string
-bind s eval "split -h"  "focus" "windowlist" "caption bottom always" "caption string '%{= Kk}%=%?%P%{+b kG}  **  copy / scroll  **  %:%?%?%E%{+b kR}  **  ESC  **  %:%?%{= Kk}%=%{= kM}%?%F%{+b kR}%:%?%?  %n-%t  '" "hardstatus ignore"
+#bind s eval "split -h"  "focus" "windowlist" "caption bottom always" "caption string '%{= Kk}%=%?%P%{+b kG}  **  copy / scroll  **  %:%?%?%E%{+b kR}  **  escape / command  **  %:%?%{= Kk}%=%{= kM}%?%F%{+b kR}%:%?%?  %n-%t  '" "hardstatus ignore"
+bind s eval "split -h"  "focus" "windowlist" "caption bottom always" "caption string '%?%E%{= Yk}  **  escape / command  **  %48= %:%?%?%P%{= Gk}  **  copy / scroll  **  %:%?%=%{= kM}%?%F%{+b kY}%:%?%?  %n-%t  '" "hardstatus ignore"
+# %?%E%{= Yk}  **  escape / command  **  %48= %:%?%?%P%{= Gk}  **  copy / scroll  **  %:%?
 
 # split screen vertically, switch to new region, open the windowlist and set caption string
-bind v eval "split -v"  "focus" "windowlist" "caption bottom always" "caption string '%{= Kk}%=%?%P%{+b kG}  **  copy / scroll  **  %:%?%?%E%{+b kR}  **  ESC  **  %:%?%{= Kk}%=%{= kM}%?%F%{+b kR}%:%?%?  %n-%t  '" "hardstatus ignore"
+#bind v eval "split -v"  "focus" "windowlist" "caption bottom always" "caption string '%{= Kk}%=%?%P%{+b kG}  **  copy / scroll  **  %:%?%?%E%{+b kR}  **  escape / command  **  %:%?%{= Kk}%=%{= kM}%?%F%{+b kR}%:%?%?  %n-%t  '" "hardstatus ignore"
+bind v eval "split -v"  "focus" "windowlist" "caption bottom always" "caption string '%?%E%{= Yk}  **  escape / command  **  %48= %:%?%?%P%{= Gk}  **  copy / scroll  **  %:%?%=%{= kM}%?%F%{+b kY}%:%?%?  %n-%t  '" "hardstatus ignore"
 
 # close all regions except the current one and set caption string
-bind O eval "only"  "caption top always" "caption string '%{= Kk}%=%?%P%{+b kG}  **  copy / scroll  **  %:%?%?%E%{+b kR}  **  ESC  **  %:%?%{= Kk}%='" "hardstatus alwayslastline"
+bind O eval "only"      "caption top always"  "caption string '%?%E%{= Yk}  **  escape / command  **  %48= %:%?%?%P%{= Gk}  **  copy / scroll  **  %:%?'" "hardstatus alwayslastline"
 
 
 # navigating in regions/split (meta, then key)
