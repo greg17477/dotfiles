@@ -16,7 +16,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 " Keep Plugin commands between vundle#begin/end.
 
-Plugin 'NLKNguyen/papercolor-theme'
+Plugin 'NLKNguyen/papercolor-theme', {'pinned': 1}
 Plugin 'vim-airline/vim-airline'
 Plugin 'jiangmiao/auto-pairs'
 
