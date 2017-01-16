@@ -60,8 +60,40 @@ source ~/.git-completion.bash
 # gnu screen related stuff - Start
 ################################################################################
 #
-# Generate a dafault prompt
-PROMPT_COMMAND="echo -n -e '\033k\033\\'; $PROMPT_COMMAND"
+# Generate a dafault prompt only for screen. This will help to set a dynamic window title in the hardstatus in screen.
+#if [ ! -z "$TERMCAP" ] ; then
+
+  PROMPT_COMMAND="PostCommand"
+
+  # The following two functions will dynamically set the window title in the hardstatusline of screen.
+  # This will run before any command is executed.
+  function PreCommand() {
+    if [ -z "$AT_PROMPT" ]; then
+      return
+    fi
+    unset AT_PROMPT
+
+    # print the currently executed/running programms name as window title in screen
+    printf "\ek%s%s\e\\" "$(hostname -s):" "$(echo $BASH_COMMAND | cut -d ' ' -f 1 | tr '/' '\n' | tail -n1)"
+  }
+  trap "PreCommand" DEBUG
+
+  # This will run after the execution of the previous full command line.  We don't
+  # want it PostCommand to execute when first starting a bash session (i.e., at
+  # the first prompt).
+  FIRST_PROMPT=1
+  function PostCommand() {
+    AT_PROMPT=1
+
+    if [ -n "$FIRST_PROMPT" ]; then
+      unset FIRST_PROMPT
+      return
+    fi
+
+    # print the hostname as window title in screen, after the previous command finished execution
+    printf "\ek%s\e\\" "$(hostname -s)"
+  }
+#fi
 
 # Set hostname initially for new windows
 echo -n -e "\033k$(echo ${HOSTNAME} | cut -d . -f 1)\033\\"
